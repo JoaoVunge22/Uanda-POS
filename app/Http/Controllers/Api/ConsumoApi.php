@@ -15,7 +15,7 @@ class ConsumoApi
                 return Cache::get('token');
             }else{
                 //--Acess token
-                $response_token = Http::withBasicAuth('BantuBet', 'BIDTUPmzeN')
+                $response_token = Http::withoutVerifying()->withBasicAuth('BantuBet', 'BIDTUPmzeN')
                 ->asForm()->post(env('API_UAT_AUTH').'v1/oauth2/token', [
                     'grant_type' => 'client_credentials',
                 ]);
@@ -46,7 +46,7 @@ class ConsumoApi
 
             @$token = Self::accessToken();
 
-            $response = Http::withHeaders([
+            $response = Http::withoutVerifying()->withHeaders([
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer '.@$token,
                 'X-User-Credential-1' => $mpin,

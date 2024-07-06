@@ -76,7 +76,7 @@ class ConsumoApi
             return [
                 'message' => 'error',
                 'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',
-            ];  //return abort(503, 'Service Unavailable');
+            ];
         }
     }
 
@@ -97,7 +97,7 @@ class ConsumoApi
             return [
                 'message' => 'error',
                 'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',
-            ];  //return abort(503, 'Service Unavailable');
+            ];
         }
     }
 

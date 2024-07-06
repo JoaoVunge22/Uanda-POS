@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class TransactionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public Transaction $post;
 
     public function __construct(Transaction $post)
@@ -37,10 +35,7 @@ class TransactionController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    //Reveid the Transaction mobile App
+
     public function store(Request $request)
     {
 
@@ -91,9 +86,7 @@ class TransactionController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id)
     {
 

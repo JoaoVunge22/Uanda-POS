@@ -68,11 +68,11 @@ class ConsumoApi
                     ]
                 ]
             ]);
-            //Log::debug('RESPONSE SET AFRIOMEY API ::', $response->json());
+            Log::debug('RESPONSE SET AFRIOMEY API ::', $response->json());
             return $response->json();
 
         } catch(\Exception $exception) {
-            //Log::error('RESPONSE SET AFRIOMEY API ::',$exception->getMessage());
+            Log::error('RESPONSE SET AFRIOMEY API ::',$exception->getMessage());
             return [
                 'message' => 'error',
                 'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',
@@ -80,40 +80,16 @@ class ConsumoApi
         }
     }
 
-    public function enquiry_pay ($transactionID, ){
+    public function enquiry_pay ($transactionID){
 
         try{
 
             $token = Self::accessToken();
 
-            return $token;
-
-
-            $response = Http::withHeaders([
+            $response = Http::withoutVerifying()->withHeaders([
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer '.$token,
             ])->get(env('API_UAT_AUTH').'v1.1/mm/transactions/'.$transactionID);
-
-            //********AFRIMONEY RESPOSE SENT***************  */
-            // {
-            //     "amount": "5.0",
-            //     "creditParty": [
-            //     {
-            //     "value": "<Number_account>",
-            //     "key": "msisdn"
-            //     }
-            //     ],
-            //     "currency": "AOA",
-            //     "debitParty": [
-            //     {
-            //     "value": "<Number_Subscriber>",
-            //     "key": "msisdn"
-            //     }
-            //     ],
-            //     "transactionReference": "MP311124.0033.A31179",
-            //     "transactionStatus": "pending",
-            //     "type": "merchantpay"
-            // }
 
             return $response->json();
 

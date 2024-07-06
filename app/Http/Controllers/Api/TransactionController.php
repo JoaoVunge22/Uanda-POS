@@ -27,9 +27,9 @@ class TransactionController extends Controller
         $userID = request('user_id');
 
         if(!empty($userID) or !empty( $walletID) ){
-            $data = Transaction::where('userID', $userID )->orWhere('walletID', $walletID )->get();
+            $data = Transaction::where('userID', $userID )->orWhere('walletID', $walletID )->latest()->get();
         }else{
-            $data = Transaction::all();
+            $data = Transaction::latest()->get();
         }
 
         return response()->json([
@@ -102,15 +102,15 @@ class TransactionController extends Controller
 
         $data = Transaction::where('transferID',$id)->first();
 
-        if($response['transactionStatus'] == 'success'){
+        if(@$response['transactionStatus'] == 'success'){
             $data->update([
-                'status' => $response['transactionStatus']
+                'status' => 'Pago'
             ]);
-        }elseif($response['transactionStatus'] == 'failed'){
+        }elseif(@$response['transactionStatus'] == 'failed'){
             $data->update([
                 'errorMessage' => '',
                 'errorCode' => '',
-                'status' => $response['transactionStatus']
+                'status' => 'Cancelado'
             ]);
         }
 

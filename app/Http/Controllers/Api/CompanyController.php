@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Compane;
 use App\Models\User;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -22,11 +23,10 @@ class CompanyController extends Controller
     public function index()
     {
 
-
         if(request('user_id')){
-            $data = Compane::withOnly(['users' => function ($query){
-                return $query->where('id','=', request('user_id') );
-            }])->first();
+            $data = Compane::withWhereHas('users', function (Builder $query){
+                return $query->where('id',request('user_id') );
+            })->first();
         }else{
             $data = Compane::all();
         }

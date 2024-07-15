@@ -27,15 +27,15 @@ class ConsumoApi
                 $seconds = $token['expires_in'];
 
                 Cache::put($key, $value , $seconds);
+                Log::debug('RESPONSE API AFRIMONEY ::{message}',['message' => $exception->getMessage()]);
 
                 return $value;
             }
 
         } catch(\Exception $exception) {
+            Log::error('RESPONSE API AFRIMONEY Error::{error}',['error' => $exception->getMessage()]);
             return abort(401, 'Unauthorized');
         }
-
-
 
     }
 
@@ -68,16 +68,19 @@ class ConsumoApi
                     ]
                 ]
             ]);
-            Log::debug('RESPONSE SET AFRIOMEY API ::', $response->json());
+
+            Log::debug('RESPONSE API MERCHANT PAYI AFRIMONEY ::{message}',['message' => $response->json()]);
+
             return $response->json();
 
         } catch(\Exception $exception) {
-            Log::error('RESPONSE SET AFRIOMEY API ::',$exception->getMessage());
+            Log::error('RESPONSE API MERCHANT PAY AFRIMONEY Error::{error}',['error' => $exception->getMessage()]);
             return [
-                'message' => 'error',
-                'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',
+               'message' => 'error',
+               'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',
             ];
         }
+
     }
 
     public function enquiry_pay ($transactionID){
@@ -91,9 +94,11 @@ class ConsumoApi
                 'Authorization' => 'Bearer '.$token,
             ])->get(env('API_UAT_AUTH').'v1.1/mm/transactions/'.$transactionID);
 
+            Log::debug('RESPONSE API TRANSACTION ENQUIRY ID PAYI AFRIMONEY ::{message}',['message' => $response->json()]);
             return $response->json();
 
         } catch(\Exception $exception) {
+            Log::error('RESPONSE API TRANSACTION ENQUIRY ID PAY AFRIMONEY Error::{error}',['error' => $exception->getMessage()]);
             return [
                 'message' => 'error',
                 'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',

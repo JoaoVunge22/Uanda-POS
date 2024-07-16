@@ -62,7 +62,7 @@
                         </h1>
 
                         <p class="text-muted mt-5" style="font-size: 1.200em">
-                            Gerencie seu negócio, desde vendas e faturamento, seus livros, sua clientela e força de trabalho até seu estoque e operações. Com módulos de gerenciamento de negócios poderosos e totalmente integrados implementados para atender às suas necessidades de negócios em qualquer lugar, a qualquer hora, rastreie perfeitamente em tempo real, controle e expanda seu negócio enquanto nosso software complementa seu trabalho.
+                            Gerencie seu negócio, desde vendas e faturamento, sua clientela e força de trabalho até seu estoque e operações. Com módulos de gerenciamento de negócios poderosos e totalmente integrados implementados para atender às suas necessidades de negócios em qualquer lugar, a qualquer hora, rastreie perfeitamente em tempo real, controle e expanda seu negócio enquanto nosso software complementa seu trabalho.
                         </p>
                         <a href="#" class="btn btn-lg btn-success mt-3">Comece Gratuitamente</a>
 

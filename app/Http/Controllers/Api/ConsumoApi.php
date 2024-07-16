@@ -15,7 +15,7 @@ class ConsumoApi
                 return Cache::get('token');
             }else{
                 //--Acess token
-                $response_token = Http::withoutVerifying()->withBasicAuth('BantuBet', 'BIDTUPmzeN')
+                $response_token = Http::withoutVerifying()->withBasicAuth('HeadMerchant', 'xmFGSQiUip')
                 ->asForm()->post(env('API_UAT_AUTH').'v1/oauth2/token', [
                     'grant_type' => 'client_credentials',
                 ]);
@@ -27,7 +27,7 @@ class ConsumoApi
                 $seconds = $token['expires_in'];
 
                 Cache::put($key, $value , $seconds);
-                Log::debug('RESPONSE API AFRIMONEY ::{message}',['message' => $exception->getMessage()]);
+                Log::debug('RESPONSE API AFRIMONEY ::{message}',['message' => $token]);
 
                 return $value;
             }

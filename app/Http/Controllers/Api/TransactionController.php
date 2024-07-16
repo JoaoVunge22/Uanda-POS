@@ -39,7 +39,7 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
 
-        Log::info('REQUEST SET MOBILE APP TO GETAWAY ::',$request->all());
+        Log::info('REQUEST SET MOBILE APP TO GETAWAY :: {message}',['message'=> $request->all()]);
 
         $PIN = $request->header('PIN');
         $correletionId = 'MB.12312.'.rand(1,10);
@@ -79,7 +79,7 @@ class TransactionController extends Controller
                 }
             }
 
-            Log::info('RESPONSE SET TO MOBILE APP ::',@$data);
+            Log::info('RESPONSE SET TO MOBILE APP ::{message}',['message'=> @$data]);
             return response()->json($data );
         }
 

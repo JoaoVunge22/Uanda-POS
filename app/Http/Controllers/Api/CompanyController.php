@@ -109,7 +109,7 @@ class CompanyController extends Controller
         );
 
         return response()->json([
-            'data' => $request->all(),
+            'data' => $data,
             'message' => 'Atualizado com sucesso.'
         ]);
     }

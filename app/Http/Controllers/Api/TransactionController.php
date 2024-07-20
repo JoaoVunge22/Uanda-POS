@@ -97,13 +97,13 @@ class TransactionController extends Controller
 
         if(@$response['transactionStatus'] == 'success'){
             $data->update([
-                'status' => 'Pago'
+                'status' => 'Confirmado'
             ]);
         }elseif(@$response['transactionStatus'] == 'failed'){
             $data->update([
                 'errorMessage' => '',
                 'errorCode' => '',
-                'status' => 'Cancelado'
+                'status' => 'Falhado'
             ]);
         }
 

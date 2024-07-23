@@ -62,7 +62,7 @@
                         </h1>
 
                         <p class="text-muted mt-5" style="font-size: 1.200em">
-                            Gerencie seu negócio, desde vendas e faturamento, sua clientela e força de trabalho até seu estoque e operações. Com módulos de gerenciamento de negócios poderosos e totalmente integrados implementados para atender às suas necessidades de negócios em qualquer lugar, a qualquer hora, rastreie perfeitamente em tempo real, controle e expanda seu negócio enquanto nosso software complementa seu trabalho.
+                            Uanda POS, ou ponto de venda mobile money, é um dispositivo que permite que comerciantes processem pagamentos e registrem transações em contas digitais. É essencialmente uma caixa registradora baseada em computador com software capaz de iniciar pagamentos, contabilizar pedidos, monitorar estoque e tendências de compra, criar faturas e coletar dados de marketing.
                         </p>
                         <a href="#" class="btn btn-lg btn-success mt-3">Comece Gratuitamente</a>
 
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <img src="img/pos.webp" class="d-block m-auto" alt="">
+                        <img src="img/pos.png" class="d-block m-auto" alt="">
                     </div>
                 </div>
             </div>

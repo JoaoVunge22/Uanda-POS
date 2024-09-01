@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public Admin $post;
+    public User $post;
 
-    public function __construct(Admin $post)
+    public function __construct(User $post)
     {
         $this->post = $post;
     }
 
     public function index()
     {
-        $data = Admin::all();
+        $data = User::where('grade','=','Admin')->get();
         return response()->json([
             'data' => $data,
         ]);
@@ -29,14 +29,23 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        if(empty($request->name) or empty($request->email) or empty($request->password) or empty($request->rule_id) or empty($request->header_compane_id)){
+
+        if(empty($request->first_name) or empty($request->last_name) or empty($request->username) or empty($request->password) or empty($request->confirmpassword) or empty($request->rule_id) or empty($request->compane_id) or empty($request->header_compane_id)){
             return response()->json([
                 'error'=> 'errorRegister',
                 'messageError' => 'Preencha todos os campos.'
                 ]);
         }
 
-        if(Admin::where('email','=',$request->email)->exists()){
+
+        if($request->grade != 'User'){
+            return response()->json([
+                'error'=> 'errorRegister',
+                'messageError' => 'Grade invalido, Preencha todos os campos.'
+                ]);
+        }
+
+        if(User::where('email','=',$request->email)->exists()){
             return response()->json([
                 'error'=> 'errorRegister',
                 'messageError' => 'Nome de usuario ja existe.'
@@ -76,7 +85,7 @@ class AdminController extends Controller
             ], 401);
         }
 
-        $data = Admin::find($id);
+        $data = User::find($id);
         return response()->json([
             'data' => $data,
         ]);
@@ -95,7 +104,7 @@ class AdminController extends Controller
             ], 401);
         }
 
-        $data = Admin::find($id);
+        $data = User::find($id);
         $data->update(
             $request->all()
         );
@@ -119,7 +128,7 @@ class AdminController extends Controller
             ], 401);
         }
 
-        $data = Admin::find($id);
+        $data = User::find($id);
         $data->delete();
 
         return response()->json([

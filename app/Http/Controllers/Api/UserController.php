@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $data = User::all();
+        $data = User::where('grade','=','User')->get();
         return response()->json([
             'data' => $data,
         ]);

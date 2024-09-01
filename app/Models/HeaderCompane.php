@@ -25,8 +25,8 @@ class HeaderCompane extends Model
         return $this->belongsTo(Compane::class);
     }
 
-    public function Admin(){
-        return $this->belongsTo(Admin::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }

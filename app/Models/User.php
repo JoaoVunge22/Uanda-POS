@@ -25,7 +25,9 @@ class User extends Authenticatable
         'email',
         'rule_id',
         'compane_id',
+        'header_compane_id',
         'password',
+        'grade',
     ];
 
     /**
@@ -52,7 +54,11 @@ class User extends Authenticatable
     }
 
     public function compane(){
-        return $this->belongsTo(Compane::class);
+        return $this->hasOne(Compane::class);
+    }
+
+    public function header_compane(){
+        return $this->hasOne(HeaderCompane::class);
     }
 
     public function rule(){

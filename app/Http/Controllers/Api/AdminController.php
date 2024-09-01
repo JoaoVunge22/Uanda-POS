@@ -38,7 +38,7 @@ class AdminController extends Controller
         }
 
 
-        if($request->grade != 'User'){
+        if($request->grade != 'Admin'){
             return response()->json([
                 'error'=> 'errorRegister',
                 'messageError' => 'Grade invalido, Preencha todos os campos.'

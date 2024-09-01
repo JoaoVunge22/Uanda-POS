@@ -52,6 +52,41 @@ class AuthController extends Controller
 
     }
 
+    //adinlogin
+    public function adinlogin(Request $request)
+    {
+
+        if(empty($request->email) or empty($request->password)){
+            return response()->json([
+                'messageError' => 'Preencha todos os campos por favor.',
+            ]);
+        }
+
+        $credentials = $request->only(
+            'email',
+            'password'
+        );
+
+        if (Auth::attempt($credentials)) {
+            $data = Auth::admin();
+            $dataUser = $data->createToken('myapptoken');
+            $User = Auth::admin();
+
+            return response()->json([
+                'data'=>$data,
+                'expires_in' => '0',
+                'token_type' => 'bearer',
+                'access_token' => $dataUser->plainTextToken,
+            ]);
+        }else{
+            return response()->json([
+                'error'=> 'errorAuthentication',
+                'messageError' => 'Credencias inavalidas'
+            ]);
+        }
+
+    }
+
     public function register(Request $request, User $post)
     {
 

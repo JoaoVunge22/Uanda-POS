@@ -28,7 +28,7 @@ Route::prefix('v1/uanda')->group(function () {
     Route::apiResource('rules', RuleController::class);
     Route::apiResource('transaction', TransactionController::class);
     Route::apiResource('users', UserController::class);
-})->middleware('auth');
+})->middleware('auth:api');
 
 
 Route::prefix('v1/uanda/callback')->group(function () {

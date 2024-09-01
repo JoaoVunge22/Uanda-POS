@@ -30,7 +30,7 @@ class Compane extends Model
     }
 
     public function transaction(){
-        return $this->belongsTo(Transaction::class);
+        return $this->hasMany(Transaction::class);
     }
 
     public function users(){

@@ -24,6 +24,6 @@ class Transaction extends Model
     ];
 
     public function company(){
-        return $this->hasOne(Company::class);
+        return $this->belongsTo(Compane::class);
     }
 }

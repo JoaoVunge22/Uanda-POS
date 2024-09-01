@@ -38,6 +38,6 @@ class Compane extends Model
     }
 
     public function header_compane(){
-        return $this->hasOne(HeaderCompane::class);
+        return $this->belongsTo(HeaderCompane::class);
     }
 }

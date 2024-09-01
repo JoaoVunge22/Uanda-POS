@@ -21,7 +21,7 @@ class HeaderCompane extends Model
     ];
 
     public function Compone(){
-        return $this->belongsTo(Compane::class);
+        return $this->hasMany(Compane::class);
     }
 
     public function user(){

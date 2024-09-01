@@ -28,7 +28,7 @@ class CompanyController extends Controller
                 return $query->where('id',request('user_id') );
             })->first();
         }else{
-            $data = Compane::all();
+            $data = Compane::all()->paginate(10);
         }
 
         return response()->json(

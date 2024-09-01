@@ -17,7 +17,7 @@ class HeaderCompanyController extends Controller
 
     public function index()
     {
-        $data = HeaderCompane::all();
+        $data = HeaderCompane::with('Compone')->get();
         return response()->json([
             'data' => $data,
         ]);

@@ -68,9 +68,9 @@ class AuthController extends Controller
         );
 
         if (Auth::attempt($credentials)) {
-            $data = Auth::admin();
+            $data = Auth::user();
             $dataUser = $data->createToken('myapptoken');
-            $User = Auth::admin();
+            $User = Auth::user();
 
             return response()->json([
                 'data'=>$data,

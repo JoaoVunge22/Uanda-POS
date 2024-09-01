@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\CallbackController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\HeaderCompanyController;
@@ -20,13 +21,14 @@ Route::prefix('v1/uanda/auth')->group(function () {
 
 //API
 Route::prefix('v1/uanda')->group(function () {
+    Route::apiResource('admin', AdminController::class);
     Route::apiResource('headerCompone', HeaderCompanyController::class);
     Route::apiResource('compane', CompanyController::class);
     Route::apiResource('wallet', WalletController::class);
     Route::apiResource('rules', RuleController::class);
     Route::apiResource('transaction', TransactionController::class);
     Route::apiResource('users', UserController::class);
-});
+})->middleware('auth');
 
 
 Route::prefix('v1/uanda/callback')->group(function () {

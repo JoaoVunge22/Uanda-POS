@@ -18,10 +18,15 @@ class HeaderCompane extends Model
         'cidade',
         'postal',
         'endereco',
+        'admin_id',
     ];
 
     public function Compone(){
         return $this->belongsTo(Compane::class);
+    }
+
+    public function Admin(){
+        return $this->belongsTo(Admin::class);
     }
 
 }

@@ -18,7 +18,6 @@ class HeaderCompane extends Model
         'cidade',
         'postal',
         'endereco',
-        'admin_id',
     ];
 
     public function Compone(){

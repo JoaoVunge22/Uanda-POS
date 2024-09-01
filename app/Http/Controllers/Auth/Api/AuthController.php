@@ -78,7 +78,7 @@ class AuthController extends Controller
             $pass = Hash::make($request->password);
             $request->password = $pass;
 
-            if($create = $post->create($request->all())){
+            if($create = $this->post->create($request->all())){
                 return response()->json([
                     'data' => $create,
                     'message' => 'Usuario criado com sucesso!'

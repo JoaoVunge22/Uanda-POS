@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('v1/uanda/auth')->group(function () {
-    Route::post('/adin-login', [AuthController::class, 'adinlogin']);
+    Route::post('/admin-login', [AuthController::class, 'adinlogin']);
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
     Route::post('/register', [AuthController::class, 'register']);

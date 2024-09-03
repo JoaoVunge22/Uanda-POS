@@ -10,7 +10,7 @@ class Wallet extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name','status'
+        'name','status','image'
     ];
 
     protected function casts(): array

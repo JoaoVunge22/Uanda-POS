@@ -64,7 +64,7 @@ class HeaderCompanyController extends Controller
             ], 401);
         }
 
-        $data = HeaderCompane::with('Compone')->where('id',$id);
+        $data = HeaderCompane::with('Compone')->where('id',$id)->first();
         return response()->json([
             'data' => $data,
         ]);

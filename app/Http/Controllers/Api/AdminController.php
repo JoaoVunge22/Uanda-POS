@@ -30,7 +30,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
 
-        if(empty($request->first_name) or empty($request->last_name) or empty($request->username) or empty($request->password) or empty($request->confirmpassword) or empty($request->rule_id) or empty($request->compane_id) or empty($request->header_compane_id)){
+        if(empty($request->first_name) or empty($request->last_name) or empty($request->username) or empty($request->password) or empty($request->confirmpassword) or empty($request->rule)){
             return response()->json([
                 'error'=> 'errorRegister',
                 'messageError' => 'Preencha todos os campos.'

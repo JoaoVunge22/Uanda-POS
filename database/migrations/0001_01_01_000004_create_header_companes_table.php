@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companes', function (Blueprint $table) {
+        Schema::create('header_companes', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('cidade')->nullable();
             $table->string('postal')->nullable();
             $table->string('endereco')->nullable();
-            $table->json('wallet')->nullable();
-            $table->foreignId('header_compane_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companes');
+        Schema::dropIfExists('header_companes');
     }
 };

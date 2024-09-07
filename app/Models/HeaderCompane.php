@@ -18,14 +18,19 @@ class HeaderCompane extends Model
         'cidade',
         'postal',
         'endereco',
+        'user_id'
     ];
-
-    public function Compone(){
-        return $this->hasMany(Compane::class);
-    }
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function company(){
+        return $this->hasMany(Compane::class);
+    }
+
+    public function transaction(){
+        return $this->hasMany(Transaction::class);
     }
 
 }

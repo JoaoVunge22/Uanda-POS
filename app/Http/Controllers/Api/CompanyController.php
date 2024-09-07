@@ -23,10 +23,10 @@ class CompanyController extends Controller
     public function index()
     {
 
-        if(request('user_id')){
-            $data = Compane::withWhereHas('users', function (Builder $query){
-                return $query->where('id',request('user_id') );
-            })->first();
+        if(request('user_id') or request('header_compane_id') ){
+            $data = Compane::with(['user','header_compane'])->where('user_id',request('user_id'))
+            ->where('header_compane_id',request('header_compane_id'))
+            ->first();
         }else{
             $data = Compane::paginate(10);
         }

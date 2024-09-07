@@ -15,12 +15,13 @@ class Transaction extends Model
         'referenceID',
         'transferID',
         'amount',
-        'userID',
-        'walletID',
+        'wallet',
         'status',
         'errorMessage',
         'errorCode',
+        'user_id',
         'compane_id',
+        'header_compane_id',
     ];
 
     public function company(){

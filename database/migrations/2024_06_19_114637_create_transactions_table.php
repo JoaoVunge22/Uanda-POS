@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('referenceID')->nullable();
             $table->string('transferID')->nullable();
             $table->string('amount')->nullable();
-            $table->string('userID')->nullable();
-            $table->string('walletID')->nullable();
+            $table->string('wallet')->nullable();
             $table->string('status')->nullable();
             $table->string('errorMessage')->nullable();
             $table->string('errorCode')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('compane_id')->constrained()->onDelete('cascade');
+            $table->foreignId('header_compane_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

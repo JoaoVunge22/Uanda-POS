@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\HeaderCompane;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class HeaderCompanyController extends Controller
@@ -17,7 +18,12 @@ class HeaderCompanyController extends Controller
 
     public function index()
     {
-        $data = HeaderCompane::with('Compone')->get();
+        if(request('user_id')){
+            $data = HeaderCompane::where('id',request('user_id') )->first();
+        }else{
+            $data = HeaderCompane::paginate(10);
+        }
+
         return response()->json([
             'data' => $data,
         ]);

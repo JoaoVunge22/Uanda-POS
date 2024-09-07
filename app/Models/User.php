@@ -22,10 +22,10 @@ class User extends Authenticatable
         'last_name',
         'username',
         'contact',
+        'admin',
         'email',
-        'rule_id',
+        'rule',
         'compane_id',
-        'header_compane_id',
         'password',
         'grade',
     ];
@@ -53,15 +53,15 @@ class User extends Authenticatable
         ];
     }
 
-    public function compane(){
-        return $this->hasOne(Compane::class);
-    }
-
     public function header_compane(){
         return $this->hasOne(HeaderCompane::class);
     }
 
-    public function rule(){
-        return $this->hasOne(Rule::class);
+    public function companey(){
+        return $this->hasOne(Compane::class);
+    }
+
+    public function transaction(){
+        return $this->hasMany(Transaction::class);
     }
 }

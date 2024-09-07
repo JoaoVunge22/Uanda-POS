@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('username');
             $table->integer('contact')->nullable();
+            $table->integer('admin')->nullable();
             $table->string('email')->unique();
-            $table->string('grade');
-            $table->foreignId('rule_id')->constrained()->onDelete('cascade');
-            $table->foreignId('compane_id')->constrained()->onDelete('cascade');
-            $table->foreignId('header_compane_id')->constrained()->onDelete('cascade');
+            $table->string('grade')->nullable();
+            $table->string('rule')->nullable();
+            $table->integer('company_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

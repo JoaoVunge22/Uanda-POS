@@ -25,7 +25,7 @@ class TransactionController extends Controller
         $userID = request('user_id');
 
         if(!empty($userID) or !empty( $walletID) ){
-            $data = Transaction::where('userID', $userID )->orWhere('walletID', $walletID )->latest()->get();
+            $data = Transaction::where('user_id', $userID )->orWhere('wallet', $walletID )->latest()->get();
         }else{
             $data = Transaction::latest()->get();
         }
@@ -63,8 +63,8 @@ class TransactionController extends Controller
                     'referenceID' => $correletionId,
                     'transferID' => $data['data']['objectReference'],
                     'amount' => $request->amount,
-                    'userID' => $request->userID,
-                    'walletID' => '',
+                    'user_id' => $request->userID,
+                    'wallet' => '',
                     'status' => $data['data']['status'],
                     'errorMessage' => '',
                     'errorCode' => '',

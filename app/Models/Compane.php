@@ -11,15 +11,9 @@ class Compane extends Model
 
     protected $fillable = [
         'name',
-        'email',
-        'contact',
-        'pais',
-        'provincia',
-        'cidade',
-        'postal',
-        'endereco',
         'wallet',
         'header_compane_id',
+        'user_id'
     ];
 
     protected function casts(): array
@@ -33,11 +27,11 @@ class Compane extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    public function users(){
-        return $this->hasOne(User::class);
-    }
-
     public function header_compane(){
         return $this->belongsTo(HeaderCompane::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

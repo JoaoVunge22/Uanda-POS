@@ -20,7 +20,17 @@ class UserController extends Controller
 
     public function index()
     {
-        $data = User::where('grade','=','User')->get();
+        if(request('user_id')){
+            $data = User::where('id', 'like','%'.request('user_id').'%')
+            ->where('id', 'like','%'.request('compane_id').'%')
+            ->where('id', 'like','%'.request('header_compane_id').'%')
+            ->where('grade', '=','User')
+            ->get();
+        }else{
+            $data = User::where('grade','=','User')->get();
+        }
+
+
         return response()->json([
             'data' => $data,
         ]);

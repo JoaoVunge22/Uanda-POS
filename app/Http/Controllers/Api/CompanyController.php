@@ -77,7 +77,7 @@ class CompanyController extends Controller
             ], 401);
         }
 
-        $data = Compane::find($id);
+        $data = Compane::where('id',$id)->get();
         return response()->json([
             'data' => $data,
         ]);

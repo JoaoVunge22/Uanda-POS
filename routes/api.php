@@ -21,7 +21,7 @@ Route::prefix('v1/uanda/auth')->group(function () {
 });
 
 //API
-Route::prefix('v1/uanda')->group(function () {
+Route::middleware('auth:sanctum')->prefix('v1/uanda')->group(function () {
     Route::apiResource('admin', AdminController::class);
     Route::apiResource('headerCompone', HeaderCompanyController::class);
     Route::apiResource('compane', CompanyController::class);
@@ -29,7 +29,7 @@ Route::prefix('v1/uanda')->group(function () {
     Route::apiResource('rules', RuleController::class);
     Route::apiResource('transaction', TransactionController::class);
     Route::apiResource('users', UserController::class);
-})->middleware('auth:sanctum');
+});
 
 
 Route::prefix('v1/uanda/callback')->group(function () {

@@ -26,7 +26,7 @@ class CompanyController extends Controller
         if(request('user_id') or request('header_compane_id') ){
             $data = Compane::with(['user','header_compane'])->where('user_id',request('user_id'))
             ->where('header_compane_id',request('header_compane_id'))
-            ->first();
+            ->get();
         }else{
             $data = Compane::paginate(10);
         }

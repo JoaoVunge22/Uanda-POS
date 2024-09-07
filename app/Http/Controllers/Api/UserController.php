@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function index()
     {
-        if(request('user_id')){
+        if(request('compane_id') or request('header_compane_id') ){
             $data = User::where('id', 'like','%'.request('user_id').'%')
             ->where('id', 'like','%'.request('compane_id').'%')
             ->where('id', 'like','%'.request('header_compane_id').'%')

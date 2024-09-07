@@ -21,12 +21,12 @@ class UserController extends Controller
     public function index()
     {
         if(request('compane_id') or request('header_compane_id') ){
-            $data = User::where('grade', '=','User')
+            $data = User::with('compane')->where('grade', '=','User')
             ->where('compane_id', 'like','%'.request('compane_id').'%')
             ->where('header_compane_id', 'like','%'.request('header_compane_id').'%')
             ->get();
         }else{
-            $data = User::where('grade','=','User')->get();
+            $data = User::with('compane')->where('grade','=','User')->get();
         }
 
 

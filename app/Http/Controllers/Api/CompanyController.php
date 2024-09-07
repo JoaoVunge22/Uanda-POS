@@ -24,8 +24,9 @@ class CompanyController extends Controller
     {
 
         if(request('user_id') or request('header_compane_id') ){
-            $data = Compane::with(['user','header_compane'])->where('user_id',request('user_id'))
-            ->where('header_compane_id',request('header_compane_id'))
+            $data = Compane::with(['user','header_compane'])
+            ->where('user_id','like','%'.request('user_id').'%')
+            ->where('header_compane_id','like','%'.request('header_compane_id').'%')
             ->get();
         }else{
             $data = Compane::paginate(10);

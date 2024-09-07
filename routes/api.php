@@ -29,7 +29,7 @@ Route::prefix('v1/uanda')->group(function () {
     Route::apiResource('rules', RuleController::class);
     Route::apiResource('transaction', TransactionController::class);
     Route::apiResource('users', UserController::class);
-})->middleware('auth:api');
+})->middleware('auth:sanctum');
 
 
 Route::prefix('v1/uanda/callback')->group(function () {

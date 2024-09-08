@@ -13,7 +13,6 @@ class Compane extends Model
         'name',
         'wallet',
         'header_compane_id',
-        'user_id'
     ];
 
     protected function casts(): array
@@ -29,9 +28,5 @@ class Compane extends Model
 
     public function header_compane(){
         return $this->belongsTo(HeaderCompane::class);
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class);
     }
 }

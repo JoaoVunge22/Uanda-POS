@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->json('wallet')->nullable();
             $table->foreignId('header_compane_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

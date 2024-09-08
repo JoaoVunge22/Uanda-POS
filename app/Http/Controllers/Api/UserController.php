@@ -24,9 +24,13 @@ class UserController extends Controller
             $data = User::leftJoin('companes', 'users.company_id', '=', 'companes.id')
             ->where('grade', '=','User')
             ->where('admin', 'like','%'.request('admin').'%')
+            ->select('users.*', 'companes.name')
             ->get();
         }else{
-            $data = User::leftJoin('companes', 'users.company_id', '=', 'companes.id')->where('grade','=','User')->get();
+            $data = User::leftJoin('companes', 'users.company_id', '=', 'companes.id')
+            ->where('grade','=','User')
+            ->select('users.*', 'companes.name')
+            ->get();
         }
 
 

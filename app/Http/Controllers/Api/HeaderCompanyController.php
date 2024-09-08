@@ -19,7 +19,7 @@ class HeaderCompanyController extends Controller
     public function index()
     {
         if(request('user_id')){
-            $data = HeaderCompane::where('user_id',request('user_id') )->fisrt();
+            $data = HeaderCompane::where('user_id',request('user_id') )->first();
         }else{
             $data = HeaderCompane::paginate(10);
         }

@@ -21,11 +21,12 @@ class UserController extends Controller
     public function index()
     {
         if(request('admin') ){
-            $data = User::where('grade', '=','User')
+            $data = User::leftJoin('companes', 'users.company_id', '=', 'companes.id')
+            ->where('grade', '=','User')
             ->where('admin', 'like','%'.request('admin').'%')
             ->get();
         }else{
-            $data = User::where('grade','=','User')->get();
+            $data = User::leftJoin('companes', 'users.company_id', '=', 'companes.id')->where('grade','=','User')->get();
         }
 
 

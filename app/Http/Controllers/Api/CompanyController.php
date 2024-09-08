@@ -24,7 +24,7 @@ class CompanyController extends Controller
     {
 
         if(request('header_compane_id') ){
-            $data = Compane::with(['user','header_compane'])
+            $data = Compane::with(['header_compane'])
             ->where('header_compane_id','like','%'.request('header_compane_id').'%')
             ->get();
         }else{

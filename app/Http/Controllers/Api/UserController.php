@@ -20,9 +20,9 @@ class UserController extends Controller
 
     public function index()
     {
-        if(request('compane_id') ){
+        if(request('admin') ){
             $data = User::where('grade', '=','User')
-            ->where('compane_id', 'like','%'.request('compane_id').'%')
+            ->where('admin', 'like','%'.request('admin').'%')
             ->get();
         }else{
             $data = User::where('grade','=','User')->get();

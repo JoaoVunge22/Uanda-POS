@@ -25,7 +25,7 @@ class User extends Authenticatable
         'admin',
         'email',
         'rule',
-        'compane_id',
+        'company_id',
         'password',
         'grade',
     ];

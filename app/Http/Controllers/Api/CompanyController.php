@@ -31,7 +31,9 @@ class CompanyController extends Controller
             $data = Compane::paginate(10);
         }
 
-        return response()->json($data);
+        return response()->json([
+            'data' => $data,
+        ]);
     }
 
     /**

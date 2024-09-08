@@ -22,11 +22,14 @@ class CompanyController extends Controller
 
     public function index()
     {
-
-        if(request('header_compane_id') ){
+        if( request('company_id') ){
+            $data = Compane::with(['header_compane'])
+            ->where('id','like','%'.request('company_id').'%')
+            ->first();
+        }elseif(request('header_compane_id')){
             $data = Compane::with(['header_compane'])
             ->where('header_compane_id','like','%'.request('header_compane_id').'%')
-            ->get();
+            ->first();
         }else{
             $data = Compane::paginate(10);
         }

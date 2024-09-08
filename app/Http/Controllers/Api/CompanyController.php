@@ -29,7 +29,7 @@ class CompanyController extends Controller
         }elseif(request('header_compane_id')){
             $data = Compane::with(['header_compane'])
             ->where('header_compane_id','like','%'.request('header_compane_id').'%')
-            ->first();
+            ->get();
         }else{
             $data = Compane::paginate(10);
         }

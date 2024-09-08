@@ -57,10 +57,6 @@ class User extends Authenticatable
         return $this->hasOne(HeaderCompane::class);
     }
 
-    public function companey(){
-        return $this->hasOne(Compane::class);
-    }
-
     public function transaction(){
         return $this->hasMany(Transaction::class);
     }

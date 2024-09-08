@@ -90,7 +90,7 @@ class AuthController extends Controller
     public function register(Request $request, User $post)
     {
 
-        if(empty($request->first_name) or empty($request->last_name) or empty($request->username) or empty($request->password) or empty($request->confirmpassword) or empty($request->rule) or empty($request->compane_id)){
+        if(empty($request->first_name) or empty($request->last_name) or empty($request->username) or empty($request->password) or empty($request->confirmpassword) or empty($request->rule)){
             return response()->json([
                 'error'=> 'errorRegister',
                 'messageError' => 'Preencha todos os campos.'
@@ -110,6 +110,7 @@ class AuthController extends Controller
                 'error'=> 'errorRegister',
                 'messageError' => 'Nome de usuario ja existe.'
                 ]);
+
         }else if(User::where('email','=',$request->email)->exists()) {
             return response()->json([
                 'error'=> 'errorRegister',

@@ -63,12 +63,13 @@ class TransactionController extends Controller
                     'referenceID' => $correletionId,
                     'transferID' => $data['data']['objectReference'],
                     'amount' => $request->amount,
-                    'user_id' => $request->userID,
-                    'wallet' => '',
+                    'user_id' => $request->user_id,
+                    'wallet' => $request->wallet,
                     'status' => $data['data']['status'],
                     'errorMessage' => '',
                     'errorCode' => '',
                     'compane_id' => $request->compane_id,
+                    'header_compane_id' => $request->header_compane_id,
                 ]);
             }else{
                 if(!empty(@$data['errordescription'])){

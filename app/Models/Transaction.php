@@ -27,4 +27,8 @@ class Transaction extends Model
     public function company(){
         return $this->belongsTo(Compane::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

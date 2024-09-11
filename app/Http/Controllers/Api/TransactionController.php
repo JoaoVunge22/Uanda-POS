@@ -21,11 +21,12 @@ class TransactionController extends Controller
     public function index()
     {
 
-        $walletID = request('wallet_id');
-        $userID = request('user_id');
-
-        if(!empty($userID) or !empty( $walletID) ){
-            $data = Transaction::where('user_id', $userID )->orWhere('wallet', $walletID )->latest()->get();
+        if(!empty(request('user_id')) or !empty( request('compane_id')) or !empty( request('compane_id')) ){
+            $data = Transaction::where('user_id', 'like','%'.request('user_id').'%')
+            ->where('compane_id', 'like','%'.request('compane_id').'%')
+            ->where('header_compane_id', 'like','%'.request('header_compane_id').'%')
+            ->latest()
+            ->get();
         }else{
             $data = Transaction::latest()->get();
         }

@@ -21,7 +21,7 @@ Route::prefix('v1/uanda/auth')->group(function () {
 });
 
 //API
-Route::prefix('v1/uanda')->group(function () {
+Route::middleware('auth:api')->prefix('v1/uanda')->group(function () {
     Route::apiResource('admin', AdminController::class);
     Route::apiResource('headerCompone', HeaderCompanyController::class);
     Route::apiResource('compane', CompanyController::class);

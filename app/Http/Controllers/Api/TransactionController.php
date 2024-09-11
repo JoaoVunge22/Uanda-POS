@@ -21,7 +21,7 @@ class TransactionController extends Controller
     public function index()
     {
 
-        if(!empty(request('user_id')) or !empty( request('compane_id')) or !empty( request('compane_id')) ){
+        if(!empty(request('user_id')) or !empty( request('compane_id')) or !empty( request('header_compane_id')) ){
             $data = Transaction::where('user_id', 'like','%'.request('user_id').'%')
             ->where('compane_id', 'like','%'.request('compane_id').'%')
             ->where('header_compane_id', 'like','%'.request('header_compane_id').'%')

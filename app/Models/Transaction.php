@@ -24,7 +24,7 @@ class Transaction extends Model
         'header_compane_id',
     ];
 
-    public function company(){
+    public function compane(){
         return $this->belongsTo(Compane::class);
     }
 

@@ -40,7 +40,12 @@ class AuthController extends Controller
             $data['token_type']='bearer';
             $data['access_token']=$dataUser->plainTextToken;
 
-            return response()->json($data);
+            return response()->json([
+                'data'=>$data,
+                'expires_in' => '0',
+                'token_type' => 'bearer',
+                'access_token' => $dataUser->plainTextToken,
+            ]);
         }else{
             return response()->json([
                 'error'=> 'errorAuthentication',

@@ -35,13 +35,13 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $data = Auth::user();
             $dataUser = $data->createToken('myapptoken');
-            $User = Auth::user();
+
+            $data['expires_in']='0';
+            $data['token_type']='bearer';
+            $data['access_token']=$dataUser->plainTextToken;
 
             return response()->json([
                 'data'=>$data,
-                'expires_in' => '0',
-                'token_type' => 'bearer',
-                'access_token' => $dataUser->plainTextToken,
             ]);
         }else{
             return response()->json([
@@ -70,7 +70,6 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $data = Auth::user();
             $dataUser = $data->createToken('myapptoken');
-            $User = Auth::user();
 
             return response()->json([
                 'data'=>$data,

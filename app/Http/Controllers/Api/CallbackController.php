@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Log;
 class CallbackController extends Controller
 {
 
-    public function __construct(Callback $post){
-        $this->post = $post;
-    }
+    // public $post;
+
+    // public function __construct(Callback $post){
+    //     $this->post = $post;
+    // }
 
     //Callback
     public function callback(Request $request)
@@ -24,8 +26,7 @@ class CallbackController extends Controller
                     'Payload' => $data
                 ],
             ]);
-
-        	return response()->json([],204);
+        	return response()->json($data,204);
 	}catch(\Exception $e) {
             	Log::debug($e->getMessage());
         }

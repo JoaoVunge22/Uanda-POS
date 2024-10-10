@@ -41,7 +41,7 @@ class AuthController extends Controller
             $data['access_token']=$dataUser->plainTextToken;
 
             return response()->json([
-                'data'=>$data,
+                $data,
             ]);
         }else{
             return response()->json([

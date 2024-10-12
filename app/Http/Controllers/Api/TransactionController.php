@@ -43,7 +43,7 @@ class TransactionController extends Controller
         Log::info('REQUEST SET MOBILE APP TO GETAWAY :: {message}',['message'=> $request->all()]);
 
         $PIN = $request->header('PIN');
-        $correletionId = 'MB.12312.'.rand(1,10);
+        $correletionId = 'MP'.date('Y').''.rand(1,10);
 
         $Myapis = new ConsumoApi();
         $data = $Myapis->merchant_pay($PIN, $request->sender, $request->amount, $request->receiver, $correletionId );

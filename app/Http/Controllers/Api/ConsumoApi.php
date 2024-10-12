@@ -42,7 +42,7 @@ class ConsumoApi
 
     public function merchant_pay ($mpin, $sender, $amount, $received, $correletionId ){
 
-        //try{
+        try{
 
             @$token = Self::accessToken();
 
@@ -72,13 +72,13 @@ class ConsumoApi
             Log::debug('RESPONSE API MERCHANT PAYI AFRIMONEY ::{message}',['message' => $response->json()]);
             return $response->json();
 
-        //} catch(\Exception $exception) {
+        } catch(\Exception $exception) {
             Log::error('RESPONSE API MERCHANT PAY AFRIMONEY Error::{error}',['error' => $exception->getMessage()]);
             return [
                'message' => 'error',
                'data' => 'Serviço Indisponivel, volte a tentar mais tarde.',
             ];
-        //}
+        }
 
     }
 

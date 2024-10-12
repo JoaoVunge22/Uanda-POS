@@ -48,7 +48,6 @@ class TransactionController extends Controller
         $Myapis = new ConsumoApi();
         $data = $Myapis->merchant_pay($PIN, $request->sender, $request->amount, $request->receiver, $correletionId );
 
-
         if(@$data['message'] == 'error'){
             return  response()->json($data);
         }else{
@@ -57,7 +56,6 @@ class TransactionController extends Controller
                     'message' => 'completed',
                     'data' => $data
                 ];
-
                 Transaction::create([
                     'sender' => $request->sender,
                     'receiver' => $request->receiver,

@@ -70,7 +70,6 @@ class ConsumoApi
             ]);
 
             Log::debug('RESPONSE API MERCHANT PAYI AFRIMONEY ::{message}',['message' => $response->json()]);
-
             return $response->json();
 
         } catch(\Exception $exception) {
